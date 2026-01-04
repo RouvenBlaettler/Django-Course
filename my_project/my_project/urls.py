@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+
+content = "<h1>Task Page</h1><p>This is the task page.</p>"
+
+def task_view(request):
+    return HttpResponse(content)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), path('task/', task_view)
 ]
+
