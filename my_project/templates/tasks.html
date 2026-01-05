@@ -1,8 +1,12 @@
-<h1>Tasks</h1>
-<ul>
-{% for task in tasks %}
-  <li>{{ task }}</li>
-{% empty %}
-  <li>No tasks available.</li>
-{% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+ 
+<h2>Request Info</h2>
+<p>Full request object: <pre>{{ request }}</pre></p>
+<h3>GET parameters</h3>
+<p>All GET data: </p>
+<h1>{{ request.GET }}</h1>
+
+
+<p>Example access to a specific GET parameter named <strong>q</strong>:</p>
+<p><code>{{ request.GET.q }}</code> — try visiting <em>/task/?q=search-term</em></p>
