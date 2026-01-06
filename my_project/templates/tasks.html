@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
- 
-<h2>Request Info</h2>
-<p>Full request object: <pre>{{ request }}</pre></p>
-<h3>GET parameters</h3>
-<p>All GET data: </p>
-<h1>{{ request.GET }}</h1>
+<h1>Task Manager</h1>
 
+<h2>Add task</h2>
 
-<p>Example access to a specific GET parameter named <strong>q</strong>:</p>
-<p><code>{{ request.GET.q }}</code> — try visiting <em>/task/?q=search-term</em></p>
+<form action="add-task" method="get">
+  <input type="text" name="task" />
+  <button type="submit">Add Task</button>
+</form>
+
+<h2>Current tasks</h2>
+    <ul>
+    {% for t in tasks %}
+        <li>{{ t }}</li>
+    {% empty %}
+        <li>No tasks yet</li>
+    {% endfor %}
+    </ul>
