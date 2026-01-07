@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 
 # Global in-memory storage for testing only (lost on server restart)
 tasks = []
+completed_tasks = []
 
 
 def task_view(request):
@@ -24,5 +25,12 @@ def add_task_view(request):
 def delete_task_view(request, index):
     # Delete the task at the given index if it exists
     if 1 <= index < len(tasks)+1:
+        del tasks[index-1]
+    return HttpResponseRedirect('/task')
+
+def complete_task_view(request, index):
+    # Mark the task at the given index as completed if it exists
+    if 1 <= index < len(tasks)+1:
+        completed_tasks.append(tasks[index-1])
         del tasks[index-1]
     return HttpResponseRedirect('/task')

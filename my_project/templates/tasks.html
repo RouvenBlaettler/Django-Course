@@ -8,10 +8,11 @@
 </form>
 
 <h2>Current tasks:</h2>
-<h4>Click on a task to delete it</h4>
+<h4>Click on a task to delete it adn click on completed to mark it as completed</h4>
     <ol>
     {% for t in tasks %}
-        <li><a href = 'delete-task/{{ forloop.counter }}'>{{ t }}</a></li>
+        <li><a href = 'task/delete-task/{{ forloop.counter }}'>{{ t }}</a> ----> <a href =
+        'complete-task/{{ forloop.counter }}'>completed</a></li>
     {% empty %}
         <li>No tasks yet</li>
     {% endfor %}
