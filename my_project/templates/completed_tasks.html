@@ -1,0 +1,10 @@
+<h1>Task Manager</h1>
+<h2>completed tasks:</h2>
+<ul>
+    {% for t in completed_tasks %}
+        <li>{{ t }}</li>
+    {% empty %}
+        <li>No completed tasks yet</li>
+    {% endfor %}
+</ul>
+<h2><a href="/task">Back to tasks</a></h2>

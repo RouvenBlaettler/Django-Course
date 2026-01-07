@@ -34,3 +34,8 @@ def complete_task_view(request, index):
         completed_tasks.append(tasks[index-1])
         del tasks[index-1]
     return HttpResponseRedirect('/task')
+
+def completed_tasks_view(request):
+    # Show completed tasks
+    context = {'completed_tasks': completed_tasks}
+    return render(request, 'completed_tasks.html', context)
